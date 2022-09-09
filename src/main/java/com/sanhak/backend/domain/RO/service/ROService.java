@@ -10,15 +10,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class ROService {
-    private RORepository repairOrderRepository;
+    private final RORepository roRepository;
 
     public RepairOrder findById(Long id) {
-        return repairOrderRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        return roRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
     @Transactional
     public Long deleteById(Long id) {
-        repairOrderRepository.deleteById(id);
+        roRepository.deleteById(id);
         return id;
     }
 }

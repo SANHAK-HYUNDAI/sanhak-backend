@@ -16,8 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class ROMappingPostService {
     private final ROMappingPostRepository roMappingPostRepository;
-    private final RORepository repairOrderRepository;
-    private final NARepository naverArticleRepository;
+    private final RORepository roRepository;
+    private final NARepository naRepository;
 
     public Long deleteById(Long id) {
         roMappingPostRepository.deleteById(id);
@@ -26,8 +26,12 @@ public class ROMappingPostService {
 
     @Transactional
     public ROMappingPost create(PostCrtDTO dto) {
-        RepairOrder repairOrder = repairOrderRepository.findById(dto.getRepairOrderId()).orElseThrow(IllegalArgumentException::new);
-        NaverArticle naverArticle = naverArticleRepository.findById(dto.getNaverArticleId()).orElseThrow(IllegalArgumentException::new);
+        RepairOrder repairOrder = roRepository
+                .findById(dto.getRepairOrderId())
+                .orElseThrow(IllegalArgumentException::new);
+        NaverArticle naverArticle = naRepository
+                .findById(dto.getNaverArticleId())
+                .orElseThrow(IllegalArgumentException::new);
 
         ROMappingPost roMappingPost = ROMappingPost.builder()
                 .naverArticle(naverArticle)
