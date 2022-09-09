@@ -25,12 +25,12 @@ public class ROMappingPost extends TimeExtend {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ro_id")
+    @JoinColumn(name = "ro_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private RepairOrder repairOrder;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "naver_article_id")
+    @JoinColumn(name = "naver_article_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private NaverArticle naverArticle;
 
