@@ -1,12 +1,12 @@
 package com.sanhak.backend.domain.post.service;
 
 import com.sanhak.backend.domain.article.NaverArticle;
-import com.sanhak.backend.domain.article.repository.NaverArticleRepository;
+import com.sanhak.backend.domain.article.repository.NARepository;
 import com.sanhak.backend.domain.post.ROMappingPost;
 import com.sanhak.backend.domain.post.dto.PostCrtDTO;
 import com.sanhak.backend.domain.post.repository.ROMappingPostRepository;
-import com.sanhak.backend.domain.ro.RepairOrder;
-import com.sanhak.backend.domain.ro.repository.RepairOrderRepository;
+import com.sanhak.backend.domain.RO.RepairOrder;
+import com.sanhak.backend.domain.RO.repository.RORepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,8 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class ROMappingPostService {
     private final ROMappingPostRepository roMappingPostRepository;
-    private final RepairOrderRepository repairOrderRepository;
-    private final NaverArticleRepository naverArticleRepository;
+    private final RORepository repairOrderRepository;
+    private final NARepository naverArticleRepository;
 
     public Long deleteById(Long id) {
         roMappingPostRepository.deleteById(id);

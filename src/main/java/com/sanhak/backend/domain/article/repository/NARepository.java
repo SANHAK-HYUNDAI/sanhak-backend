@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface NaverArticleRepository extends JpaRepository<NaverArticle, Long> {
+public interface NARepository extends JpaRepository<NaverArticle, Long> {
     Optional<NaverArticle> findById(Long id);
 
     void deleteById(Long id);

@@ -2,7 +2,7 @@ package com.sanhak.backend.domain.post;
 
 import com.sanhak.backend.domain.article.NaverArticle;
 import com.sanhak.backend.domain.comment.Comment;
-import com.sanhak.backend.domain.ro.RepairOrder;
+import com.sanhak.backend.domain.RO.RepairOrder;
 import com.sanhak.backend.global.TimeExtend;
 import lombok.AccessLevel;
 import lombok.Builder;

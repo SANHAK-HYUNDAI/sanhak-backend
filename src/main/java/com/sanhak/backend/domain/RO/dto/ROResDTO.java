@@ -1,4 +1,4 @@
-package com.sanhak.backend.domain.ro.dto;
+package com.sanhak.backend.domain.RO.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

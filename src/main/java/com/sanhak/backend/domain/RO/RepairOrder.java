@@ -1,4 +1,4 @@
-package com.sanhak.backend.domain.ro;
+package com.sanhak.backend.domain.RO;
 
 import com.sanhak.backend.global.TimeExtend;
 import lombok.AccessLevel;
