@@ -54,6 +54,7 @@ class ROMappingPostTest {
         CafeArticle na = CafeArticle.builder()
                 .cafeName("cafe name")
                 .broadName("broad name")
+                .userName("user name")
                 .category("category")
                 .content("content")
                 .period(1)
@@ -61,6 +62,7 @@ class ROMappingPostTest {
                 .url("url")
                 .viewCount(0L)
                 .docCreatedAt(LocalDateTime.now())
+                .isMailing(false)
                 .build();
 
         ROMappingPost roMappingPost = ROMappingPost.builder()

@@ -23,6 +23,9 @@ public class CafeArticle extends TimeExtend {
     @Column(name = "broad_name")
     private String broadName;
 
+    @Column(name = "user_name")
+    private String userName;
+
     @Column(name = "title")
     private String title;
 
@@ -44,11 +47,15 @@ public class CafeArticle extends TimeExtend {
     @Column(name = "doc_created_at")
     private LocalDateTime docCreatedAt;
 
+    @Column(name = "is_mailing")
+    private Boolean isMailing;
+
     @Builder
-    public CafeArticle(Long id, String cafeName, String broadName, String title, String content, Long viewCount, String url, Integer period, String category, LocalDateTime docCreatedAt) {
+    public CafeArticle(Long id, String cafeName, String broadName, String userName, String title, String content, Long viewCount, String url, Integer period, String category, LocalDateTime docCreatedAt, Boolean isMailing) {
         this.id = id;
         this.cafeName = cafeName;
         this.broadName = broadName;
+        this.userName = userName;
         this.title = title;
         this.content = content;
         this.viewCount = viewCount;
@@ -56,5 +63,6 @@ public class CafeArticle extends TimeExtend {
         this.period = period;
         this.category = category;
         this.docCreatedAt = docCreatedAt;
+        this.isMailing = isMailing;
     }
 }
