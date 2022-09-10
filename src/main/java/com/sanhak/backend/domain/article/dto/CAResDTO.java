@@ -1,18 +1,12 @@
 package com.sanhak.backend.domain.article.dto;
 
-import com.sanhak.backend.domain.article.NaverArticle;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 @Data
 @NoArgsConstructor
-public class NAResDTO {
+public class CAResDTO {
     private Long id;
     private String cafeName;
     private String broadName;
@@ -24,7 +18,7 @@ public class NAResDTO {
     private String category;
 
     @Builder
-    public NAResDTO(Long id, String cafeName, String broadName, String title, String content, Long viewCount, String url, Integer period, String category) {
+    public CAResDTO(Long id, String cafeName, String broadName, String title, String content, Long viewCount, String url, Integer period, String category) {
         this.id = id;
         this.cafeName = cafeName;
         this.broadName = broadName;

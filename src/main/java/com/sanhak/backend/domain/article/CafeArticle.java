@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Getter
-@Entity(name = "naver_article")
+@Entity(name = "cafe_article")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class NaverArticle extends TimeExtend {
+public class CafeArticle extends TimeExtend {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -41,7 +41,7 @@ public class NaverArticle extends TimeExtend {
     private String category;
 
     @Builder
-    public NaverArticle(Long id, String cafeName, String broadName, String title, String content, Long viewCount, String url, Integer period, String category) {
+    public CafeArticle(Long id, String cafeName, String broadName, String title, String content, Long viewCount, String url, Integer period, String category) {
         this.id = id;
         this.cafeName = cafeName;
         this.broadName = broadName;
