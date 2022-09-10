@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/api/ro")
 public class ROController {
-    private final ROService repairOrderService;
+    private final ROService roService;
     private final ModelMapper modelMapper;
 
     @GetMapping("/{id}")
     public ResponseEntity<ROResDTO> findById(@PathVariable(name = "id") Long id) {
-        RepairOrder repairOrder = repairOrderService.findById(id);
+        RepairOrder repairOrder = roService.findById(id);
         ROResDTO roResDTO = modelMapper.map(repairOrder, ROResDTO.class);
         return ResponseEntity.ok(roResDTO);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Long> deleteById(@PathVariable(name = "id") Long id) {
-        return ResponseEntity.ok(repairOrderService.deleteById(id));
+        return ResponseEntity.ok(roService.deleteById(id));
     }
 }
