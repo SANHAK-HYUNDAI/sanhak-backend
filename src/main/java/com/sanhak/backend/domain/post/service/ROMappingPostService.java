@@ -1,7 +1,7 @@
 package com.sanhak.backend.domain.post.service;
 
-import com.sanhak.backend.domain.article.NaverArticle;
-import com.sanhak.backend.domain.article.repository.NARepository;
+import com.sanhak.backend.domain.article.CafeArticle;
+import com.sanhak.backend.domain.article.repository.CARepository;
 import com.sanhak.backend.domain.post.ROMappingPost;
 import com.sanhak.backend.domain.post.dto.PostCrtDTO;
 import com.sanhak.backend.domain.post.repository.ROMappingPostRepository;
@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ROMappingPostService {
     private final ROMappingPostRepository roMappingPostRepository;
     private final RORepository roRepository;
-    private final NARepository naRepository;
+    private final CARepository caRepository;
 
     public Long deleteById(Long id) {
         roMappingPostRepository.deleteById(id);
@@ -29,12 +29,12 @@ public class ROMappingPostService {
         RepairOrder repairOrder = roRepository
                 .findById(dto.getRepairOrderId())
                 .orElseThrow(IllegalArgumentException::new);
-        NaverArticle naverArticle = naRepository
+        CafeArticle cafeArticle = caRepository
                 .findById(dto.getNaverArticleId())
                 .orElseThrow(IllegalArgumentException::new);
 
         ROMappingPost roMappingPost = ROMappingPost.builder()
-                .naverArticle(naverArticle)
+                .cafeArticle(cafeArticle)
                 .repairOrder(repairOrder)
                 .build();
 
