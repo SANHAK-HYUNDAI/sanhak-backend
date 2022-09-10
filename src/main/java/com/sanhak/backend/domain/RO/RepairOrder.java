@@ -27,8 +27,11 @@ public class RepairOrder extends TimeExtend {
     @Column(name = "cause_part")
     private String causePart;
 
-    @Column(name = "cause_part_name")
-    private String causePartName;
+    @Column(name = "cause_part_name_kor")
+    private String causePartNameKor;
+
+    @Column(name = "cause_part_name_eng")
+    private String causePartNameEng;
 
     @Column(name = "symptom")
     private String symptom;
@@ -52,12 +55,13 @@ public class RepairOrder extends TimeExtend {
     private LocalDateTime docCreatedAt;
 
     @Builder
-    public RepairOrder(Long id, String vehicleType, String partNumber, String causePart, String causePartName, String symptom, String specialNote, String location, String causePartCluster, String problematicSituation, String cause, LocalDateTime docCreatedAt) {
+    public RepairOrder(Long id, String vehicleType, String partNumber, String causePart, String causePartNameKor, String causePartNameEng, String symptom, String specialNote, String location, String causePartCluster, String problematicSituation, String cause, LocalDateTime docCreatedAt) {
         this.id = id;
         this.vehicleType = vehicleType;
         this.partNumber = partNumber;
         this.causePart = causePart;
-        this.causePartName = causePartName;
+        this.causePartNameKor = causePartNameKor;
+        this.causePartNameEng = causePartNameEng;
         this.symptom = symptom;
         this.specialNote = specialNote;
         this.location = location;
