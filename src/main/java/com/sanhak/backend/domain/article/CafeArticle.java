@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Entity(name = "cafe_article")
@@ -40,8 +41,11 @@ public class CafeArticle extends TimeExtend {
     @Column(name = "category")
     private String category;
 
+    @Column(name = "doc_created_at")
+    private LocalDateTime docCreatedAt;
+
     @Builder
-    public CafeArticle(Long id, String cafeName, String broadName, String title, String content, Long viewCount, String url, Integer period, String category) {
+    public CafeArticle(Long id, String cafeName, String broadName, String title, String content, Long viewCount, String url, Integer period, String category, LocalDateTime docCreatedAt) {
         this.id = id;
         this.cafeName = cafeName;
         this.broadName = broadName;
@@ -51,5 +55,6 @@ public class CafeArticle extends TimeExtend {
         this.url = url;
         this.period = period;
         this.category = category;
+        this.docCreatedAt = docCreatedAt;
     }
 }

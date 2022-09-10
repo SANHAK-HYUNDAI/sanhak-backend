@@ -43,7 +43,6 @@ class ROMappingPostTest {
                 .causePartCluster("causePartCluster")
                 .causePartNameKor("causePartNameKor")
                 .causePartNameEng("causePartNameEng")
-                .docCreatedAt(LocalDateTime.now())
                 .location("location")
                 .partNumber("partNumber")
                 .problematicSituation("problematicSituation")
@@ -61,6 +60,7 @@ class ROMappingPostTest {
                 .title("title")
                 .url("url")
                 .viewCount(0L)
+                .docCreatedAt(LocalDateTime.now())
                 .build();
 
         ROMappingPost roMappingPost = ROMappingPost.builder()
