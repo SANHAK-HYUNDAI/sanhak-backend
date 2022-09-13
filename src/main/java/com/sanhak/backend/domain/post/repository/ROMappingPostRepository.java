@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ROMappingPostRepository extends JpaRepository<ROMappingPost, Long> {
+public interface ROMappingPostRepository extends JpaRepository<ROMappingPost, Long>, ROMappingPostRepositoryDSL {
     void deleteById(Long id);
 }
