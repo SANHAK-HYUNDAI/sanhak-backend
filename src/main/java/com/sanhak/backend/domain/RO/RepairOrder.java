@@ -1,5 +1,6 @@
 package com.sanhak.backend.domain.RO;
 
+import com.sanhak.backend.domain.RO.dto.ROResDTO;
 import com.sanhak.backend.global.TimeExtend;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -66,5 +67,21 @@ public class RepairOrder extends TimeExtend {
         this.causePartCluster = causePartCluster;
         this.problematicSituation = problematicSituation;
         this.cause = cause;
+    }
+
+    public ROResDTO toDTO() {
+        return ROResDTO.builder()
+                .cause(this.cause)
+                .causePart(this.causePart)
+                .causePartCluster(this.causePartCluster)
+                .causePartNameKor(this.causePartNameKor)
+                .causePartNameEng(this.causePartNameEng)
+                .location(this.location)
+                .partNumber(this.partNumber)
+                .problematicSituation(this.problematicSituation)
+                .specialNote(this.specialNote)
+                .symptom(this.symptom)
+                .vehicleType(this.vehicleType)
+                .build();
     }
 }

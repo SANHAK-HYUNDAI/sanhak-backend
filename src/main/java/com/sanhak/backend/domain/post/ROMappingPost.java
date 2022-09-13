@@ -3,6 +3,7 @@ package com.sanhak.backend.domain.post;
 import com.sanhak.backend.domain.article.CafeArticle;
 import com.sanhak.backend.domain.comment.Comment;
 import com.sanhak.backend.domain.RO.RepairOrder;
+import com.sanhak.backend.domain.post.dto.PostDTO;
 import com.sanhak.backend.global.TimeExtend;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -42,5 +43,13 @@ public class ROMappingPost extends TimeExtend {
         this.id = id;
         this.repairOrder = repairOrder;
         this.cafeArticle = cafeArticle;
+    }
+
+    public PostDTO toDTO() {
+        return PostDTO.builder()
+                .id(this.id)
+                .caResDTO(this.cafeArticle.toDTO())
+                .roResDTO(this.repairOrder.toDTO())
+                .build();
     }
 }
