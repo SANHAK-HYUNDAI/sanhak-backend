@@ -1,9 +1,11 @@
 package com.sanhak.backend.domain.article.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.sanhak.backend.domain.article.CafeArticle;
 import com.sanhak.backend.domain.article.dto.CAResDTO;
 import com.sanhak.backend.domain.article.service.CAService;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,8 +25,7 @@ import java.time.LocalDateTime;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(MockitoExtension.class)
 class CAControllerTest {
@@ -41,6 +42,7 @@ class CAControllerTest {
     @BeforeEach
     public void init() {
         mockMvc = MockMvcBuilders.standaloneSetup(caController).build();
+        objectMapper.registerModule(new JavaTimeModule());
     }
 
     @Test
@@ -62,7 +64,10 @@ class CAControllerTest {
                 .docCreatedAt(LocalDateTime.now())
                 .isMailing(false)
                 .build();
-        doReturn(ca).when(caService).findById(id);
+
+        CAResDTO caResDTO = modelMapper.map(ca, CAResDTO.class);
+
+        doReturn(caResDTO).when(caService).findById(id);
 
         // when
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/api/article/naver/{id}", id))
@@ -71,18 +76,18 @@ class CAControllerTest {
 
         String content = mvcResult.getResponse().getContentAsString();
 
-        CAResDTO dto = objectMapper.readValue(content, CAResDTO.class);
+        CAResDTO body = objectMapper.readValue(content, CAResDTO.class);
 
         // then
-        assertThat(dto.getId()).isEqualTo(ca.getId());
-        assertThat(dto.getBroadName()).isEqualTo(ca.getBroadName());
-        assertThat(dto.getCafeName()).isEqualTo(ca.getCafeName());
-        assertThat(dto.getContent()).isEqualTo(ca.getContent());
-        assertThat(dto.getCategory()).isEqualTo(ca.getCategory());
-        assertThat(dto.getUrl()).isEqualTo(ca.getUrl());
-        assertThat(dto.getTitle()).isEqualTo(ca.getTitle());
-        assertThat(dto.getPeriod()).isEqualTo(ca.getPeriod());
-        assertThat(dto.getViewCount()).isEqualTo(ca.getViewCount());
+        assertThat(ca.getId()).isEqualTo(body.getId());
+        assertThat(ca.getBroadName()).isEqualTo(body.getBroadName());
+        assertThat(ca.getCafeName()).isEqualTo(body.getCafeName());
+        assertThat(ca.getContent()).isEqualTo(body.getContent());
+        assertThat(ca.getCategory()).isEqualTo(body.getCategory());
+        assertThat(ca.getUrl()).isEqualTo(body.getUrl());
+        assertThat(ca.getTitle()).isEqualTo(body.getTitle());
+        assertThat(ca.getPeriod()).isEqualTo(body.getPeriod());
+        assertThat(ca.getViewCount()).isEqualTo(body.getViewCount());
 
         // verify
         verify(caService, times(1)).findById(id);
