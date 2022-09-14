@@ -44,12 +44,4 @@ public class ROMappingPost extends TimeExtend {
         this.repairOrder = repairOrder;
         this.cafeArticle = cafeArticle;
     }
-
-    public PostDTO toDTO() {
-        return PostDTO.builder()
-                .id(this.id)
-                .caResDTO(this.cafeArticle.toDTO())
-                .roResDTO(this.repairOrder.toDTO())
-                .build();
-    }
 }

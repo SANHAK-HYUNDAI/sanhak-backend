@@ -67,19 +67,4 @@ public class CafeArticle extends TimeExtend {
         this.isMailing = isMailing;
     }
 
-    public CAResDTO toDTO() {
-        return CAResDTO.builder()
-                .cafeName(this.cafeName)
-                .broadName(this.broadName)
-                .userName(this.userName)
-                .category(this.category)
-                .content(this.content)
-                .period(this.period)
-                .title(this.title)
-                .url(this.url)
-                .viewCount(this.viewCount)
-                .docCreatedAt(this.docCreatedAt)
-                .isMailing(this.isMailing)
-                .build();
-    }
 }

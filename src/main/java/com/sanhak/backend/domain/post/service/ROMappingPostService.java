@@ -22,11 +22,12 @@ public class ROMappingPostService {
     private final ROMappingPostRepository roMappingPostRepository;
     private final RORepository roRepository;
     private final CARepository caRepository;
+    private final ModelMapper modelMapper;
 
     public Page<PostDTO> searchPostWithPagination(PostSearch postSearch) {
         Page<PostDTO> result = roMappingPostRepository
                 .SearchPostWithPagination(postSearch)
-                .map(ROMappingPost::toDTO);
+                .map(post ->modelMapper.map(post,PostDTO.class));
         return result;
     }
 
@@ -36,7 +37,7 @@ public class ROMappingPostService {
     }
 
     @Transactional
-    public ROMappingPost create(PostCrtDTO dto) {
+    public PostDTO create(PostCrtDTO dto) {
         RepairOrder repairOrder = roRepository
                 .findById(dto.getRepairOrderId())
                 .orElseThrow(IllegalArgumentException::new);
@@ -49,6 +50,7 @@ public class ROMappingPostService {
                 .repairOrder(repairOrder)
                 .build();
 
-        return roMappingPostRepository.save(roMappingPost);
+        ROMappingPost createdPost = roMappingPostRepository.save(roMappingPost);
+        return modelMapper.map(createdPost, PostDTO.class);
     }
 }

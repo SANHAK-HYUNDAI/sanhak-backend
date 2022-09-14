@@ -14,7 +14,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -43,6 +45,8 @@ class ROMappingPostServiceTest {
     private CARepository caRepository;
     @Mock
     private RORepository roRepository;
+    @Spy
+    private ModelMapper modelMapper;
 
 
     @Test
@@ -99,7 +103,7 @@ class ROMappingPostServiceTest {
         //then
         verify(roMappingPostRepository,times(1)).SearchPostWithPagination(any());
         for(int i=0;i<10;i++){
-            assertThat(result.getContent().get(i)).isEqualTo(list.get(i).toDTO());
+            assertThat(result.getContent().get(i)).isEqualTo(modelMapper.map(list.get(i),PostDTO.class));
         }
     }
     
@@ -117,11 +121,11 @@ class ROMappingPostServiceTest {
         given(roMappingPostRepository.save(any())).willReturn(ROMappingPost.builder().id(postId).build());
 
         //when
-        ROMappingPost roMappingPost = roMappingPostService.create(crtDTO);
+        PostDTO postDTO = roMappingPostService.create(crtDTO);
         //then
         verify(roRepository,times(1)).findById(crtDTO.getRepairOrderId());
         verify(caRepository,times(1)).findById(crtDTO.getNaverArticleId());
-        assertThat(roMappingPost.getId()).isEqualTo(postId);
+        assertThat(postDTO.getId()).isEqualTo(postId);
     }
 
     @Test

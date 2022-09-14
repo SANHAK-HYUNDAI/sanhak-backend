@@ -11,13 +11,13 @@ import lombok.NoArgsConstructor;
 public class PostDTO {
 
     private Long id;
-    private CAResDTO caResDTO;
-    private ROResDTO roResDTO;
+    private CAResDTO cafeArticle;
+    private ROResDTO repairOrder;
 
     @Builder
-    public PostDTO(Long id, CAResDTO caResDTO, ROResDTO roResDTO) {
+    public PostDTO(Long id, CAResDTO cafeArticle, ROResDTO repairOrder) {
         this.id =id;
-        this.caResDTO = caResDTO;
-        this.roResDTO = roResDTO;
+        this.cafeArticle = cafeArticle;
+        this.repairOrder = repairOrder;
     }
 }

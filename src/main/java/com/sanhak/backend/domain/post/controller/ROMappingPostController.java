@@ -25,14 +25,12 @@ public class ROMappingPostController {
     public ResponseEntity<PostResponseDTO> findPostsWithPagination(@Validated PostSearch postSearch) {
         Page<PostDTO> roMappingPosts = roMappingPostService.searchPostWithPagination(postSearch);
         PostResponseDTO response = new PostResponseDTO(roMappingPosts);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("")
     public ResponseEntity<PostDTO> create(@RequestBody PostCrtDTO dto) {
-        ROMappingPost roMappingPost = roMappingPostService.create(dto);
-        PostDTO postDTO = roMappingPost.toDTO();
+        PostDTO postDTO = roMappingPostService.create(dto);
         return ResponseEntity.ok(postDTO);
     }
 

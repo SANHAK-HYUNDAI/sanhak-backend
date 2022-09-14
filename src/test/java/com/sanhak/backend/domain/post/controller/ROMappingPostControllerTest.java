@@ -4,7 +4,9 @@ package com.sanhak.backend.domain.post.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.sanhak.backend.domain.RO.RepairOrder;
+import com.sanhak.backend.domain.RO.dto.ROResDTO;
 import com.sanhak.backend.domain.article.CafeArticle;
+import com.sanhak.backend.domain.article.dto.CAResDTO;
 import com.sanhak.backend.domain.post.ROMappingPost;
 import com.sanhak.backend.domain.post.dto.PostCrtDTO;
 import com.sanhak.backend.domain.post.dto.PostDTO;
@@ -80,12 +82,12 @@ public class ROMappingPostControllerTest {
         PostCrtDTO crtDTO = PostCrtDTO.builder().naverArticleId(123L).repairOrderId(456L).build();
         ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(crtDTO);
-        ROMappingPost post = ROMappingPost.builder()
+        PostDTO postDTO = PostDTO.builder()
                 .id(1L)
-                .cafeArticle(CafeArticle.builder().id(123L).build())
-                .repairOrder(RepairOrder.builder().id(456L).build())
+                .cafeArticle(CAResDTO.builder().id(123L).build())
+                .repairOrder(ROResDTO.builder().id(456L).build())
                 .build();
-        given(roMappingPostService.create(crtDTO)).willReturn(post);
+        given(roMappingPostService.create(crtDTO)).willReturn(postDTO);
         //when
 
         MvcResult mvcResult = mockMvc.perform(
@@ -98,7 +100,7 @@ public class ROMappingPostControllerTest {
 
         //then
         PostDTO returnedPostDTO = new Gson().fromJson(mvcResult.getResponse().getContentAsString(), PostDTO.class);
-        assertThat(returnedPostDTO).isEqualTo(post.toDTO());
+        assertThat(returnedPostDTO).isEqualTo(postDTO);
     }
 
 
