@@ -13,13 +13,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/article/naver")
 public class CAController {
     private final CAService caService;
-    private final ModelMapper modelMapper;
 
     @GetMapping("/{id}")
     public ResponseEntity<CAResDTO> findById(@PathVariable(name = "id") Long id) {
-        CafeArticle na = caService.findById(id);
-        CAResDTO CAResDTO = modelMapper.map(na, CAResDTO.class);
-        return ResponseEntity.ok(CAResDTO);
+        CAResDTO caResDTO = caService.findById(id);
+        return ResponseEntity.ok(caResDTO);
     }
 
     @DeleteMapping("/{id}")

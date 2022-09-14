@@ -12,6 +12,7 @@ public class CAResDTO {
     private Long id;
     private String cafeName;
     private String broadName;
+    private String userName;
     private String title;
     private String content;
     private Long viewCount;
@@ -23,10 +24,11 @@ public class CAResDTO {
     private Boolean isMailing;
 
     @Builder
-    public CAResDTO(Long id, String cafeName, String broadName, String title, String content, Long viewCount, String url,String userName, Integer period, String category, LocalDateTime docCreatedAt, Boolean isMailing) {
+    public CAResDTO(Long id, String cafeName, String broadName, String userName, String title, String content, Long viewCount, String url, Integer period, String category, LocalDateTime docCreatedAt, Boolean isMailing) {
         this.id = id;
         this.cafeName = cafeName;
         this.broadName = broadName;
+        this.userName = userName;
         this.title = title;
         this.content = content;
         this.viewCount = viewCount;
