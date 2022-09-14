@@ -3,6 +3,7 @@ package com.sanhak.backend.domain.post;
 import com.sanhak.backend.domain.article.CafeArticle;
 import com.sanhak.backend.domain.comment.Comment;
 import com.sanhak.backend.domain.RO.RepairOrder;
+import com.sanhak.backend.domain.post.dto.PostDTO;
 import com.sanhak.backend.global.TimeExtend;
 import lombok.AccessLevel;
 import lombok.Builder;

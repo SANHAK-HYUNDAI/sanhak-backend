@@ -1,5 +1,6 @@
 package com.sanhak.backend.domain.RO;
 
+import com.sanhak.backend.domain.RO.dto.ROResDTO;
 import com.sanhak.backend.global.TimeExtend;
 import lombok.AccessLevel;
 import lombok.Builder;

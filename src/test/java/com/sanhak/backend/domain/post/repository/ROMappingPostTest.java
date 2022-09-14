@@ -1,9 +1,10 @@
-package com.sanhak.backend.domain.post;
+package com.sanhak.backend.domain.post.repository;
 
 import com.sanhak.backend.domain.RO.RepairOrder;
 import com.sanhak.backend.domain.RO.repository.RORepository;
 import com.sanhak.backend.domain.article.CafeArticle;
 import com.sanhak.backend.domain.article.repository.CARepository;
+import com.sanhak.backend.domain.post.ROMappingPost;
 import com.sanhak.backend.domain.post.repository.ROMappingPostRepository;
 import com.sanhak.backend.global.config.QueryDSLConfig;
 import org.junit.jupiter.api.*;

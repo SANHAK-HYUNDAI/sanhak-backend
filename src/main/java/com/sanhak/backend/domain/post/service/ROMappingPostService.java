@@ -4,10 +4,14 @@ import com.sanhak.backend.domain.article.CafeArticle;
 import com.sanhak.backend.domain.article.repository.CARepository;
 import com.sanhak.backend.domain.post.ROMappingPost;
 import com.sanhak.backend.domain.post.dto.PostCrtDTO;
+import com.sanhak.backend.domain.post.dto.PostDTO;
+import com.sanhak.backend.domain.post.dto.PostSearch;
 import com.sanhak.backend.domain.post.repository.ROMappingPostRepository;
 import com.sanhak.backend.domain.RO.RepairOrder;
 import com.sanhak.backend.domain.RO.repository.RORepository;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +22,14 @@ public class ROMappingPostService {
     private final ROMappingPostRepository roMappingPostRepository;
     private final RORepository roRepository;
     private final CARepository caRepository;
+    private final ModelMapper modelMapper;
+
+    public Page<PostDTO> searchPostWithPagination(PostSearch postSearch) {
+        Page<PostDTO> result = roMappingPostRepository
+                .SearchPostWithPagination(postSearch)
+                .map(post ->modelMapper.map(post,PostDTO.class));
+        return result;
+    }
 
     public Long deleteById(Long id) {
         roMappingPostRepository.deleteById(id);
@@ -25,7 +37,7 @@ public class ROMappingPostService {
     }
 
     @Transactional
-    public ROMappingPost create(PostCrtDTO dto) {
+    public PostDTO create(PostCrtDTO dto) {
         RepairOrder repairOrder = roRepository
                 .findById(dto.getRepairOrderId())
                 .orElseThrow(IllegalArgumentException::new);
@@ -38,6 +50,7 @@ public class ROMappingPostService {
                 .repairOrder(repairOrder)
                 .build();
 
-        return roMappingPostRepository.save(roMappingPost);
+        ROMappingPost createdPost = roMappingPostRepository.save(roMappingPost);
+        return modelMapper.map(createdPost, PostDTO.class);
     }
 }

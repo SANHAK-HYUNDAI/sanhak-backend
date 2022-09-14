@@ -1,5 +1,6 @@
 package com.sanhak.backend.domain.article;
 
+import com.sanhak.backend.domain.article.dto.CAResDTO;
 import com.sanhak.backend.global.TimeExtend;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -65,4 +66,5 @@ public class CafeArticle extends TimeExtend {
         this.docCreatedAt = docCreatedAt;
         this.isMailing = isMailing;
     }
+
 }

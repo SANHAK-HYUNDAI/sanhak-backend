@@ -4,10 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Data
@@ -22,6 +18,7 @@ public class CAResDTO {
     private Long viewCount;
     private String url;
     private Integer period;
+    private String userName;
     private String category;
     private LocalDateTime docCreatedAt;
     private Boolean isMailing;
@@ -37,6 +34,7 @@ public class CAResDTO {
         this.viewCount = viewCount;
         this.url = url;
         this.period = period;
+        this.userName=userName;
         this.category = category;
         this.docCreatedAt = docCreatedAt;
         this.isMailing = isMailing;
