@@ -1,15 +1,13 @@
 package com.sanhak.backend.domain.post.controller;
 
-import com.sanhak.backend.domain.post.ROMappingPost;
 import com.sanhak.backend.domain.post.dto.PostCrtDTO;
 import com.sanhak.backend.domain.post.dto.PostDTO;
-import com.sanhak.backend.domain.post.dto.PostResponseDTO;
+import com.sanhak.backend.domain.post.dto.PostResDTO;
 import com.sanhak.backend.domain.post.dto.PostSearch;
 import com.sanhak.backend.domain.post.service.ROMappingPostService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +20,9 @@ public class ROMappingPostController {
     private final ModelMapper modelMapper;
 
     @GetMapping("")
-    public ResponseEntity<PostResponseDTO> findPostsWithPagination(@Validated PostSearch postSearch) {
+    public ResponseEntity<PostResDTO> findPostsWithPagination(@Validated PostSearch postSearch) {
         Page<PostDTO> roMappingPosts = roMappingPostService.searchPostWithPagination(postSearch);
-        PostResponseDTO response = new PostResponseDTO(roMappingPosts);
+        PostResDTO response = new PostResDTO(roMappingPosts);
         return ResponseEntity.ok(response);
     }
 

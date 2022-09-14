@@ -3,14 +3,11 @@ package com.sanhak.backend.domain.post.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.sanhak.backend.domain.RO.RepairOrder;
 import com.sanhak.backend.domain.RO.dto.ROResDTO;
-import com.sanhak.backend.domain.article.CafeArticle;
 import com.sanhak.backend.domain.article.dto.CAResDTO;
-import com.sanhak.backend.domain.post.ROMappingPost;
 import com.sanhak.backend.domain.post.dto.PostCrtDTO;
 import com.sanhak.backend.domain.post.dto.PostDTO;
-import com.sanhak.backend.domain.post.dto.PostResponseDTO;
+import com.sanhak.backend.domain.post.dto.PostResDTO;
 import com.sanhak.backend.domain.post.service.ROMappingPostService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -71,8 +68,8 @@ public class ROMappingPostControllerTest {
                 .andReturn();
 
         //then
-        PostResponseDTO postResponseDTO = new Gson().fromJson(mvcResult.getResponse().getContentAsString(), PostResponseDTO.class);
-        assertThat(postResponseDTO).isEqualTo(new PostResponseDTO(result));
+        PostResDTO postResDTO = new Gson().fromJson(mvcResult.getResponse().getContentAsString(), PostResDTO.class);
+        assertThat(postResDTO).isEqualTo(new PostResDTO(result));
     }
 
     @Test

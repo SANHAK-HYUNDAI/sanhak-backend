@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 
 @Data
 @NoArgsConstructor
-public class PostResponseDTO{
+public class PostResDTO {
     private List<PostDTO> dtoList;
 
     private int totalPage;
@@ -27,7 +27,7 @@ public class PostResponseDTO{
     private List<Integer> pageIndexList;
 
     @Builder
-    public PostResponseDTO(Page<PostDTO> result) {
+    public PostResDTO(Page<PostDTO> result) {
         dtoList = result.getContent();
         totalPage = result.getTotalPages();
         totalElementCount = result.getTotalElements();
