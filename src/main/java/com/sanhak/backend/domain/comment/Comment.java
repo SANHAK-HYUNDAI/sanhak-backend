@@ -3,6 +3,7 @@ package com.sanhak.backend.domain.comment;
 import com.sanhak.backend.domain.post.ROMappingPost;
 import com.sanhak.backend.global.TimeExtend;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
@@ -25,4 +26,11 @@ public class Comment extends TimeExtend {
     @JoinColumn(name = "post_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private ROMappingPost roMappingPost;
+
+    @Builder
+    public Comment(Long id, String content, ROMappingPost roMappingPost) {
+        this.id = id;
+        this.content = content;
+        this.roMappingPost = roMappingPost;
+    }
 }
