@@ -10,7 +10,7 @@
 
 ## 💭 프로젝트 소개
 
-- 현대 트랙시스와 연계하여 진행한 프로젝트
+- 현대 트랜시스와 연계하여 진행한 프로젝트
 - `SpringBoot` + `Fast API` 를 사용한 `MSA` 프로젝트
 - `Naver Cafe` 게시글과 `RO(Repair Order)`정보를 유사도 분석하여 `DashBoard`로 출력
 
