@@ -1,10 +1,8 @@
 package com.sanhak.backend.domain.article.controller;
 
-import com.sanhak.backend.domain.article.CafeArticle;
 import com.sanhak.backend.domain.article.dto.CAResDTO;
 import com.sanhak.backend.domain.article.service.CAService;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
