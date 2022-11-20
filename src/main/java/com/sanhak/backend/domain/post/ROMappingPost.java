@@ -26,12 +26,18 @@ public class ROMappingPost extends TimeExtend {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ro_id", nullable = false)
+    @JoinColumn(
+            name = "ro_id",
+            nullable = false,
+            foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
     @OnDelete(action = OnDeleteAction.CASCADE)
     private RepairOrder repairOrder;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ca_id", nullable = false)
+    @JoinColumn(
+            name = "ca_id",
+            nullable = false,
+            foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
     @OnDelete(action = OnDeleteAction.CASCADE)
     private CafeArticle cafeArticle;
 

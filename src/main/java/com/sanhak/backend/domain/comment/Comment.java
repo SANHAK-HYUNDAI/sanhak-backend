@@ -15,7 +15,8 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Comment extends TimeExtend {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id")
     private Long id;
 
@@ -23,7 +24,9 @@ public class Comment extends TimeExtend {
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
+    @JoinColumn(
+            name = "post_id",
+            foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
     @OnDelete(action = OnDeleteAction.CASCADE)
     private ROMappingPost roMappingPost;
 
