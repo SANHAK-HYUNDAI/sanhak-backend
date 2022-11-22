@@ -1,6 +1,5 @@
 package com.sanhak.backend.domain.article;
 
-import com.sanhak.backend.domain.article.dto.CAResDTO;
 import com.sanhak.backend.global.TimeExtend;
 import lombok.AccessLevel;
 import lombok.Builder;

@@ -1,0 +1,30 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+      database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  # in-memory database test setting
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    url: jdbc:h2:mem:test
+
+  # swagger option
+  mvc:
+    path-match:
+      matching-strategy: ant_path_matcher
+
+server:
+  # port number setting
+  port: 8999
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true

@@ -14,9 +14,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.sanhak.backend.domain.RO.QRepairOrder.*;
-import static com.sanhak.backend.domain.article.QCafeArticle.*;
-import static com.sanhak.backend.domain.post.QROMappingPost.*;
+import static com.sanhak.backend.domain.RO.QRepairOrder.repairOrder;
+import static com.sanhak.backend.domain.article.QCafeArticle.cafeArticle;
+import static com.sanhak.backend.domain.post.QROMappingPost.rOMappingPost;
 
 @Repository
 public class ROMappingPostRepositoryDSLImpl extends QuerydslRepositorySupport implements ROMappingPostRepositoryDSL {

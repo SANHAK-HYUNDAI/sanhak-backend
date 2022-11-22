@@ -1,16 +1,3 @@
-server:
-  port: 8080
-
 spring:
   config:
-    import: application-mysql.yml
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: validate
-    properties:
-      hibernate.format_sql: true
-      database: mysql
+    import: application-dev.yml

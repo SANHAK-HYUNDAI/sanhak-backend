@@ -18,7 +18,6 @@ public class CAResDTO {
     private Long viewCount;
     private String url;
     private Integer period;
-    private String userName;
     private String category;
     private LocalDateTime docCreatedAt;
     private Boolean isMailing;

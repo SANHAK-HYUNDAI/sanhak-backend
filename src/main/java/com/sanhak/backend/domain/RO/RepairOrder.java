@@ -1,6 +1,5 @@
 package com.sanhak.backend.domain.RO;
 
-import com.sanhak.backend.domain.RO.dto.ROResDTO;
 import com.sanhak.backend.global.TimeExtend;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -8,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Getter
 @Entity(name = "repair_order")

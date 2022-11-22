@@ -1,5 +1,7 @@
 package com.sanhak.backend.domain.post.service;
 
+import com.sanhak.backend.domain.RO.RepairOrder;
+import com.sanhak.backend.domain.RO.repository.RORepository;
 import com.sanhak.backend.domain.article.CafeArticle;
 import com.sanhak.backend.domain.article.repository.CARepository;
 import com.sanhak.backend.domain.post.ROMappingPost;
@@ -7,8 +9,6 @@ import com.sanhak.backend.domain.post.dto.PostCrtDTO;
 import com.sanhak.backend.domain.post.dto.PostDTO;
 import com.sanhak.backend.domain.post.dto.PostSearch;
 import com.sanhak.backend.domain.post.repository.ROMappingPostRepository;
-import com.sanhak.backend.domain.RO.RepairOrder;
-import com.sanhak.backend.domain.RO.repository.RORepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;

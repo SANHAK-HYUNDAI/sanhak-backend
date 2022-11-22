@@ -1,6 +1,7 @@
 buildscript {
     ext{
-        queryDslVersion ="5.0.0"
+        queryDslVersion = "5.0.0"
+        springBootVersion = "2.7.2"
     }
 }
 
@@ -23,7 +24,6 @@ configurations {
     querydsl.extendsFrom compileClasspath
 
     all {
-        //logback과의 충돌 방지
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
 }
@@ -33,13 +33,23 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // web
+    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+
+    // jpa
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
     compileOnly 'org.projectlombok:lombok'
+
+    // querydsl
+    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+    implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+
+    // database
     runtimeOnly 'mysql:mysql-connector-java'
     runtimeOnly 'com.h2database:h2'
+
+    // lombok
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     // model mapper
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.6'
@@ -48,17 +58,14 @@ dependencies {
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
     implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 
-    // querydsl
-    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
-    implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
-
     // log4j2
     implementation 'org.springframework.boot:spring-boot-starter-log4j2'
 
     // validation
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation "org.springframework.boot:spring-boot-starter-validation:$springBootVersion"
 
-    // mockito
+    // mockito, junit
+    testImplementation "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
     testImplementation "org.mockito:mockito-core:3.+"
 
     // Gson
@@ -78,7 +85,6 @@ sourceSets {
 compileQuerydsl {
     options.annotationProcessorPath = configurations.querydsl
 }
-
 
 tasks.named('test') {
     useJUnitPlatform()
