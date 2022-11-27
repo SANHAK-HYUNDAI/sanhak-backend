@@ -80,3 +80,11 @@ create table ro_keyword
         primary key,
     count bigint null
 );
+
+create table keyword
+(
+    word       varchar(255) not null
+        primary key,
+    similarity double null,
+    ca_id      bigint null
+);
