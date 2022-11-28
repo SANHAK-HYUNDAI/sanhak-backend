@@ -23,7 +23,8 @@ create table cafe_article
     created_at datetime(6) null,
     title      varchar(255) null,
     url        varchar(255) null,
-    writer     varchar(255) null
+    writer     varchar(255) null,
+    keywords    varchar(255) null
 );
 
 create table repair_order
@@ -67,24 +68,9 @@ create table similarity
     ro_id         bigint null
 );
 
-create table ca_keyword
-(
-    word  varchar(255) not null
-        primary key,
-    count bigint null
-);
-
-create table ro_keyword
-(
-    word  varchar(255) not null
-        primary key,
-    count bigint null
-);
-
 create table keyword
 (
-    word       varchar(255) not null
+    word      varchar(255) not null
         primary key,
-    similarity double null,
-    ca_id      bigint null
+    frequency bigint null
 );
