@@ -34,4 +34,7 @@ public class CafeArticle {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;// :  생성일, 작성일
+
+    @Column(name = "keywords")
+    private String keywords;// : CA 키워드5개
 }

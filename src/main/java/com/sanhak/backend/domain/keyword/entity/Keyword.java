@@ -12,14 +12,6 @@ public class Keyword {
     @Column(name = "word")
     private String word;
 
-    @Column(name = "similarity")
-    private Double similarity;
-
-
-    @ManyToOne(targetEntity = CafeArticle.class)
-    @JoinColumn(
-            name = "ca_id",
-            foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT)
-    )
-    private CafeArticle cafeArticle;
+    @Column(name = "frequency")
+    private Integer frequency;
 }
