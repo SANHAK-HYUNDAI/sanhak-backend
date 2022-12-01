@@ -19,7 +19,7 @@ create table cafe_article
         primary key,
     board_name varchar(255) null,
     cafe_name  varchar(255) null,
-    content    varchar(255) null,
+    content    text null,
     created_at datetime(6) null,
     title      varchar(255) null,
     url        varchar(255) null,
