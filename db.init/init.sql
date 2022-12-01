@@ -40,7 +40,7 @@ create table repair_order
     location            varchar(255) null,
     part_number         varchar(255) null,
     problematic         varchar(255) null,
-    special_note        varchar(255) null,
+    special_note        text null,
     sub_phenom          varchar(255) null,
     vehicle_type        varchar(255) null
 );
