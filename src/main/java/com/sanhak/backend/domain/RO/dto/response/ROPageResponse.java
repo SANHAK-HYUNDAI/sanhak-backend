@@ -1,6 +1,5 @@
 package com.sanhak.backend.domain.RO.dto.response;
 
-import com.sanhak.backend.global.dto.BasePageResponse;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

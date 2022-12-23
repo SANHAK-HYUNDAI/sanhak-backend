@@ -1,6 +1,5 @@
 package com.sanhak.backend.domain.RO.dto.request;
 
-import com.sanhak.backend.global.dto.BasePageRequest;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.domain.PageRequest;
