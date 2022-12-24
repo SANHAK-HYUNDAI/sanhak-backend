@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class CAResponseAssembler {
 
     public CASimpleResponse createCASimpleResponse(CafeArticle ca) {
-        return new CASimpleResponse(ca.getCafeName(), ca.getTitle(), ca.getKeywords());
+        return new CASimpleResponse(ca.getId(),ca.getCafeName(), ca.getTitle(), ca.getKeywords());
     }
 
     public CADetailResponse createCADetailResponse(CafeArticle ca, List<ROResponse> roResponses) {
