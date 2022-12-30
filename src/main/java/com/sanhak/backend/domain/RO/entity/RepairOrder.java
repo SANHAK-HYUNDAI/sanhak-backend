@@ -1,11 +1,15 @@
 package com.sanhak.backend.domain.RO.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
 @Table(name = "repair_order")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class RepairOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,4 +39,23 @@ public class RepairOrder {
     private String problematic;
     @Column(name = "cause")
     private String cause;
+
+    @Builder
+    public RepairOrder(Long id, String vehicleType, String partNumber, String causePart, String causePartNameKor,
+                       String causePartNameEng, String bigPhenom, String subPhenom, String specialNote,
+                       String location, String causePartCluster, String problematic, String cause) {
+        this.id = id;
+        this.vehicleType = vehicleType;
+        this.partNumber = partNumber;
+        this.causePart = causePart;
+        this.causePartNameKor = causePartNameKor;
+        this.causePartNameEng = causePartNameEng;
+        this.bigPhenom = bigPhenom;
+        this.subPhenom = subPhenom;
+        this.specialNote = specialNote;
+        this.location = location;
+        this.causePartCluster = causePartCluster;
+        this.problematic = problematic;
+        this.cause = cause;
+    }
 }

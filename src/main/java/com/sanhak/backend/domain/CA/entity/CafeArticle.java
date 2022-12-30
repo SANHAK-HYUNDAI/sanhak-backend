@@ -1,13 +1,17 @@
 package com.sanhak.backend.domain.CA.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
 @Table(name = "cafe_article")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CafeArticle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,4 +41,18 @@ public class CafeArticle {
 
     @Column(name = "keywords")
     private String keywords;// : CA 키워드5개
+
+    @Builder
+    public CafeArticle(Long id, String cafeName, String boardName, String writer, String title, String content,
+                       String url, LocalDateTime createdAt, String keywords) {
+        this.id = id;
+        this.cafeName = cafeName;
+        this.boardName = boardName;
+        this.writer = writer;
+        this.title = title;
+        this.content = content;
+        this.url = url;
+        this.createdAt = createdAt;
+        this.keywords = keywords;
+    }
 }
