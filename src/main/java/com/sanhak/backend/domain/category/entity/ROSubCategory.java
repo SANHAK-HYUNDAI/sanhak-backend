@@ -5,8 +5,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Getter
+@Entity
 @Table(name = "ro_sub_category")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ROSubCategory {
@@ -17,10 +17,16 @@ public class ROSubCategory {
     @Column(name = "count")
     private Long count;
 
-    @ManyToOne(targetEntity = CABigCategory.class)
+    @ManyToOne(targetEntity = ROBigCategory.class)
     @JoinColumn(
             name = "big_cate_name",
             foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT)
     )
-    private CABigCategory bigCategory;
+    private ROBigCategory bigCategory;
+
+    public ROSubCategory(String name, Long count, ROBigCategory bigCategory) {
+        this.name = name;
+        this.count = count;
+        this.bigCategory = bigCategory;
+    }
 }

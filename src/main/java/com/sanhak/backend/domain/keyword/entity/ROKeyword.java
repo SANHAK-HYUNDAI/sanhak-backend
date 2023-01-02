@@ -1,16 +1,19 @@
 package com.sanhak.backend.domain.keyword.entity;
 
-import com.sanhak.backend.domain.CA.entity.CafeArticle;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@Table(name = "keyword")
+@Table(name = "ro_keyword")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Keyword {
+public class ROKeyword {
+
     @Id
     @Column(name = "word")
     private String word;
@@ -18,7 +21,7 @@ public class Keyword {
     @Column(name = "frequency")
     private Integer frequency;
 
-    public Keyword(String word, Integer frequency) {
+    public ROKeyword(String word, Integer frequency) {
         this.word = word;
         this.frequency = frequency;
     }
