@@ -1,6 +1,5 @@
 package com.sanhak.backend.domain.keyword.entity;
 
-import com.sanhak.backend.domain.CA.entity.CafeArticle;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -8,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@Table(name = "keyword")
+@Table(name = "ca_keyword")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Keyword {
+public class CAKeyword {
     @Id
     @Column(name = "word")
     private String word;
@@ -18,7 +17,7 @@ public class Keyword {
     @Column(name = "frequency")
     private Integer frequency;
 
-    public Keyword(String word, Integer frequency) {
+    public CAKeyword(String word, Integer frequency) {
         this.word = word;
         this.frequency = frequency;
     }

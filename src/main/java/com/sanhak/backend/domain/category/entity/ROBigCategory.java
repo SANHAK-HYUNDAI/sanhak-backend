@@ -5,8 +5,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Getter
+@Entity
 @Table(name = "ro_big_category")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ROBigCategory {
@@ -16,4 +16,9 @@ public class ROBigCategory {
 
     @Column(name = "count")
     private Long count;
+
+    public ROBigCategory(String name, Long count) {
+        this.name = name;
+        this.count = count;
+    }
 }

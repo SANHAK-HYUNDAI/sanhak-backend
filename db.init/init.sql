@@ -68,7 +68,14 @@ create table similarity
     ro_id         bigint null
 );
 
-create table keyword
+create table ca_keyword
+(
+    word      varchar(255) not null
+        primary key,
+    frequency bigint null
+);
+
+create table ro_keyword
 (
     word      varchar(255) not null
         primary key,
