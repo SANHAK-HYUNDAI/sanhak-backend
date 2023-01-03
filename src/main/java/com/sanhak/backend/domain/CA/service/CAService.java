@@ -13,13 +13,10 @@ import com.sanhak.backend.domain.category.dto.response.CABigCateResponse;
 import com.sanhak.backend.domain.category.dto.response.CASubCateResponse;
 import com.sanhak.backend.domain.category.service.CACategoryService;
 import com.sanhak.backend.domain.keyword.dto.response.KeywordResponse;
-import com.sanhak.backend.domain.keyword.service.KeywordService;
-import com.sanhak.backend.domain.similarity.dto.response.SimilarityResponse;
-import com.sanhak.backend.domain.similarity.entity.Similarity;
+import com.sanhak.backend.domain.keyword.service.CAKeywordService;
 import com.sanhak.backend.domain.similarity.service.SimilarityService;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -31,7 +28,7 @@ public class CAService {
 
     private final SimilarityService similarityService;
     private final CACategoryService caCategoryService;
-    private final KeywordService keywordService;
+    private final CAKeywordService keywordService;
 
     private final CAResponseAssembler responseAssembler;
 
