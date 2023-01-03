@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CASubCategoryRepository extends JpaRepository<CASubCategory, Long> {
+public interface CASubCategoryRepository extends JpaRepository<CASubCategory, String> {
 
     @EntityGraph(attributePaths = "bigCategory")
     public List<CASubCategory> findAll();
