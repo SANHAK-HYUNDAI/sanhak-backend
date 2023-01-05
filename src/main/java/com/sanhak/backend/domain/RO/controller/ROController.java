@@ -1,7 +1,9 @@
 package com.sanhak.backend.domain.RO.controller;
 
+import com.sanhak.backend.domain.CA.dto.response.CAStatisticsResponse;
 import com.sanhak.backend.domain.RO.dto.request.ROPageRequest;
 import com.sanhak.backend.domain.RO.dto.response.ROPageResponse;
+import com.sanhak.backend.domain.RO.dto.response.ROStatisticsResponse;
 import com.sanhak.backend.domain.RO.service.ROService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,13 @@ public class ROController {
     @GetMapping
     public ResponseEntity<ROPageResponse> getROs(ROPageRequest roPageRequest) {
         ROPageResponse response = roService.getROs(roPageRequest);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/statistics")
+    public ResponseEntity<ROStatisticsResponse> getROStatistics() {
+        ROStatisticsResponse response = roService.getROStatistics();
+
         return ResponseEntity.ok(response);
     }
 }
