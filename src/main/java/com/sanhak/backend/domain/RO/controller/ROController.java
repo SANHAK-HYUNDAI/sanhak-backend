@@ -26,7 +26,7 @@ public class ROController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<ROResponse>> getROsWithoutPaging() {
         List<ROResponse> result = roService.getROsWithoutPaging();
         return ResponseEntity.ok(result);
