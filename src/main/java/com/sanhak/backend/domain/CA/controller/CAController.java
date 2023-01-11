@@ -7,6 +7,7 @@ import com.sanhak.backend.domain.CA.dto.response.CASimpleResponse;
 import com.sanhak.backend.domain.CA.dto.response.CAStatisticsResponse;
 import com.sanhak.backend.domain.CA.service.CAService;
 import java.util.List;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,8 +30,8 @@ public class CAController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<CASimpleResponse>> getAllCAsByBigPhenom(String bigPhenom) {
-        List<CASimpleResponse> response = caService.getAllCAsByBigPhenom(bigPhenom);
+    public ResponseEntity<Set<CASimpleResponse>> getAllCAsByBigPhenom(String bigPhenom) {
+        Set<CASimpleResponse> response = caService.getAllCAsByBigPhenom(bigPhenom);
 
         return ResponseEntity.ok(response);
     }

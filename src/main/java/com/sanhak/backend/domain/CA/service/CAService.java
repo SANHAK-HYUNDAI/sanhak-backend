@@ -18,6 +18,7 @@ import com.sanhak.backend.domain.similarity.entity.Similarity;
 import com.sanhak.backend.domain.similarity.service.SimilarityService;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -41,10 +42,10 @@ public class CAService {
         return responseAssembler.createCAPageResponse(result);
     }
 
-    public List<CASimpleResponse> getAllCAsByBigPhenom(String bigPhenom) {
-        List<CASimpleResponse> result = similarityService.getAllSimilaritiesByBigPhenom(bigPhenom).stream()
+    public Set<CASimpleResponse> getAllCAsByBigPhenom(String bigPhenom) {
+        Set<CASimpleResponse> result = similarityService.getAllSimilaritiesByBigPhenom(bigPhenom).stream()
                 .map(similarity -> responseAssembler.createCASimpleResponse(similarity.getCafeArticle()))
-                .collect(Collectors.toUnmodifiableList());
+                .collect(Collectors.toUnmodifiableSet());
 
         return result;
     }
