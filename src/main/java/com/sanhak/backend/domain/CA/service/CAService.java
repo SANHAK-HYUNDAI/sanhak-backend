@@ -35,13 +35,6 @@ public class CAService {
 
     private final CAResponseAssembler responseAssembler;
 
-    public CAPageResponse getSimpleCAsByBigPhenom(CAPageRequest request) {
-        Page<CASimpleResponse> result = similarityService.getSimilaritiesByBigPhenom(request)
-                .map(similarity -> responseAssembler.createCASimpleResponse(similarity.getCafeArticle()));
-
-        return responseAssembler.createCAPageResponse(result);
-    }
-
     public Set<CASimpleResponse> getAllCAsByBigPhenom(String bigPhenom) {
         Set<CASimpleResponse> result = similarityService.getAllSimilaritiesByBigPhenom(bigPhenom).stream()
                 .map(similarity -> responseAssembler.createCASimpleResponse(similarity.getCafeArticle()))
