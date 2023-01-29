@@ -1,8 +1,5 @@
 package com.sanhak.backend.domain.RO.controller;
 
-import com.sanhak.backend.domain.CA.dto.response.CAStatisticsResponse;
-import com.sanhak.backend.domain.RO.dto.request.ROPageRequest;
-import com.sanhak.backend.domain.RO.dto.response.ROPageResponse;
 import com.sanhak.backend.domain.RO.dto.response.ROResponse;
 import com.sanhak.backend.domain.RO.dto.response.ROStatisticsResponse;
 import com.sanhak.backend.domain.RO.service.ROService;
@@ -19,12 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ROController {
 
     private final ROService roService;
-
-    @GetMapping
-    public ResponseEntity<ROPageResponse> getROs(ROPageRequest roPageRequest) {
-        ROPageResponse response = roService.getROs(roPageRequest);
-        return ResponseEntity.ok(response);
-    }
 
     @GetMapping("/all")
     public ResponseEntity<List<ROResponse>> getROsWithoutPaging() {

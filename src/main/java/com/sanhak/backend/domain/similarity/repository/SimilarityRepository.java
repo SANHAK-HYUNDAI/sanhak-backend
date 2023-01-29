@@ -1,6 +1,7 @@
 package com.sanhak.backend.domain.similarity.repository;
 
 import com.sanhak.backend.domain.CA.entity.CafeArticle;
+import com.sanhak.backend.domain.RO.entity.RepairOrder;
 import com.sanhak.backend.domain.similarity.entity.Similarity;
 import java.util.List;
 import org.springframework.data.domain.Page;
