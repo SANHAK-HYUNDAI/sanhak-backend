@@ -18,15 +18,14 @@ public class ROController {
     private final ROService roService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<ROResponse>> getROsWithoutPaging() {
-        List<ROResponse> result = roService.getROsWithoutPaging();
+    public ResponseEntity<List<ROResponse>> getAllROs() {
+        List<ROResponse> result = roService.getAllROs();
         return ResponseEntity.ok(result);
     }
 
     @GetMapping("/statistics")
     public ResponseEntity<ROStatisticsResponse> getROStatistics() {
         ROStatisticsResponse response = roService.getROStatistics();
-
         return ResponseEntity.ok(response);
     }
 }

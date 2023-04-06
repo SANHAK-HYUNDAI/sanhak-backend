@@ -1,7 +1,9 @@
 package com.sanhak.backend.domain.RO.service;
 
+import com.sanhak.backend.domain.CA.entity.CafeArticle;
 import com.sanhak.backend.domain.RO.dto.response.ROResponse;
 import com.sanhak.backend.domain.RO.dto.response.ROStatisticsResponse;
+import com.sanhak.backend.domain.RO.entity.RepairOrder;
 import com.sanhak.backend.domain.RO.repository.RORepository;
 import com.sanhak.backend.domain.category.dto.response.ROBigCateResponse;
 import com.sanhak.backend.domain.category.dto.response.ROSubCateResponse;
@@ -22,7 +24,7 @@ public class ROService {
 
     private final RORepository roRepository;
 
-    public List<ROResponse> getROsWithoutPaging() {
+    public List<ROResponse> getAllROs() {
         return roRepository.findAll().stream()
                 .map(repairOrder -> new ROResponse(repairOrder))
                 .collect(Collectors.toUnmodifiableList());
@@ -34,5 +36,12 @@ public class ROService {
         List<ROBigCateResponse> bigCateResponses = roCategoryService.getAllBigCategories();
 
         return new ROStatisticsResponse(keywordResponses, bigCateResponses, subCateResponses);
+    }
+
+    public List<ROResponse> getRepairOrdersByCafeArticleId(Long caId) {
+        return roRepository.findRepairOrdersByCafeArticleId(caId)
+                .stream()
+                .map(ro->new ROResponse(ro))
+                .collect(Collectors.toUnmodifiableList());
     }
 }
